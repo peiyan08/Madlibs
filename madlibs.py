@@ -11,6 +11,8 @@ AWESOMENESS = [
     'awesome', 'terrific', 'fantastic', 'neato', 'fantabulous', 'wowza', 'oh-so-not-meh',
     'brilliant', 'ducky', 'coolio', 'incredible', 'wonderful', 'smashing', 'lovely']
 
+MADLIB_TEMPLATES = ['madlib.html', 'madlib2.html']
+
 
 @app.route("/game")
 def show_madlib_form():
@@ -58,9 +60,10 @@ def show_madlib():
     person = request.args.get("person")
     color = request.args.get("color")
     noun = request.args.get("noun")
-    adjective = request.args.get("adjective")
-
-    return render_template("madlib.html",
+    adjective = request.args.getlist("adjective")
+    template = choice(MADLIB_TEMPLATES)
+    print adjective
+    return render_template(template,
                             person = person,
                             color = color,
                             noun = noun,
@@ -70,4 +73,4 @@ def show_madlib():
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
     # if we change the code.
-    app.run(debug=True)
+    app.run(debug=True, port=5003)

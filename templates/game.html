@@ -1,9 +1,9 @@
-<!doctype html>
-<html>
-<head>
-  <title>The Game</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block title %}
+The Game
+{% endblock %}
+
+{% block body %}
     <form action="/madlib">
        Name of the person: <input type="text" name="person">
        <br>
@@ -20,11 +20,10 @@
        <input type="radio" name="noun" value="dog">Dog
        <input type="radio" name="noun" value="cat">Cat
        <br>
-       An Adjective: <input type="text" name="adjective">
+       An Adjective: <input type="checkbox" name="adjective" value="nice">Nice
+       <input type="checkbox" name="adjective" value="cool">Cool
+       <input type="checkbox" name="adjective" value="nasty">Nasty
        <br>
        <input type="submit">
-
-     
     </form>
-</body>
-</html>
+{% endblock %}

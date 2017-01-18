@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 {% block title %}
-Medlib
+Madlib
 {% endblock %}
 
 {% block body %}
     <h1>Your madlib.</h1>
 
-    <p>There once was a {{ color }} {{ noun }} sitting in the Hackbright Lab. When {{ person }} went to pick it up, it burst into flames in a totally
+    <p>
+    Once upon a time, there was a
         {% for adj in adjective %}
             {{ adj }}
         {% endfor %}
-    way.
+    {{noun}}. It's name was {{person}}, and it was really {{color}}. 
     </p>
 {% endblock %}
