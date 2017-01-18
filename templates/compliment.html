@@ -4,7 +4,12 @@ Compliment
 {% endblock %}
 
 {% block body %}
-    Hi {{ person }}! I think you're {{ compliment }}!
+    Hi {{ person }}! I think you're
+    <ul>
+    {% for cmpl in compliments %}
+        <li>{{ cmpl }}</li>
+    {% endfor %}
+    </ul>
 
     Would you like to play a game?
     <form action="/game">

@@ -1,4 +1,4 @@
-from random import choice
+from random import choice, sample
 
 from flask import Flask, render_template, request
 
@@ -46,28 +46,34 @@ def greet_person():
 
     player = request.args.get("person")
 
-    compliment = choice(AWESOMENESS)
+    compliments = sample(AWESOMENESS, 3)
 
     return render_template("compliment.html",
                            person=player,
-                           compliment=compliment)
+                           compliments=compliments)
 
 
-@app.route('/madlib')
+@app.route('/madlib', methods=["GET", "POST"])
 def show_madlib():
     """Make the madlib"""
+    if request.method == "POST":
+        person = request.form.get("person")
+        color = request.form.get("color")
+        noun = request.form.get("noun")
+        adjective = request.form.getlist("adjective")
 
-    person = request.args.get("person")
-    color = request.args.get("color")
-    noun = request.args.get("noun")
-    adjective = request.args.getlist("adjective")
+    else:
+        person = request.args.get("person")
+        color = request.args.get("color")
+        noun = request.args.get("noun")
+        adjective = request.args.getlist("adjective")
+
     template = choice(MADLIB_TEMPLATES)
-    print adjective
     return render_template(template,
-                            person = person,
-                            color = color,
-                            noun = noun,
-                            adjective = adjective)
+                            person=person,
+                            color=color,
+                            noun=noun,
+                            adjective=adjective)
 
 
 if __name__ == '__main__':

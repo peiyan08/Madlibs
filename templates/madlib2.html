@@ -8,9 +8,16 @@ Madlib
 
     <p>
     Once upon a time, there was a
-        {% for adj in adjective %}
-            {{ adj }}
-        {% endfor %}
+        {% if adjective|length > 2 %}
+            {% for adj in adjective[:-1] %}
+                {{ adj }},
+            {% endfor %}
+                and {{ adjective[-1] }}
+        {% elif adjective|length == 2 %}
+            {{ adjective[0] }} and {{ adjective[1] }}
+        {% else %}
+            {{ adjective[0] }}
+        {% endif %}
     {{noun}}. It's name was {{person}}, and it was really {{color}}. 
     </p>
 {% endblock %}
