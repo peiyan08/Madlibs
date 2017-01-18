@@ -30,7 +30,7 @@ def show_madlib_form():
 def start_here():
     """Homepage."""
 
-    return "Hi! This is the home page."
+    return render_template("home.html")
 
 
 @app.route('/hello')
@@ -79,4 +79,4 @@ def show_madlib():
 if __name__ == '__main__':
     # debug=True gives us error messages in the browser and also "reloads" our web app
     # if we change the code.
-    app.run(debug=True, port=5003)
+    app.run(debug=True, port=5000)

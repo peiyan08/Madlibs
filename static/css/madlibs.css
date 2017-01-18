@@ -6,3 +6,38 @@ body {
 h1 {
     color: white;
 }
+
+#home-title{
+    font-family: Helvetica, sans-serif;
+    
+}
+
+#home-div {
+    text-align: center;
+    margin-top: 40%;
+}
+#hello-title {
+    text-align: center;
+    margin-top: 15%;
+}
+
+form {
+    text-align: center;
+    margin-top: 3%;
+}
+
+#greet {
+    color: #aa4444;
+    text-align: center;
+    font-size: 1.5em;
+    margin-top: 15%;
+    background-color: #441144;
+    padding: 5px;
+    box-shadow: 5px 5px gray;
+    border-radius: 50px;
+}
+
+ul {
+    width: 20%;
+    margin: auto;
+}
